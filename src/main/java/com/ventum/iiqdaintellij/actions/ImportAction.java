@@ -1,10 +1,10 @@
-package com.ventum.iiqdaintellij;
+package com.ventum.iiqdaintellij.actions;
 
 import com.intellij.ide.BrowserUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
-public class DeployArtifactAction extends AnAction
+public class ImportAction extends AnAction
 {
     @Override
     public void actionPerformed(AnActionEvent e)

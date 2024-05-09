@@ -1,4 +1,4 @@
-package sailpoint.iiqda.core;
+package com.ventum.iiqdaintellij.utils;
 
 public class IIQDAConstants {
 	

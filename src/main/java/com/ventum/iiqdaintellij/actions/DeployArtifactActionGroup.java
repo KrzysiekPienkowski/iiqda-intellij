@@ -1,4 +1,4 @@
-package com.ventum.iiqdaintellij;
+package com.ventum.iiqdaintellij.actions;
 
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.AnAction;

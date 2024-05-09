@@ -17,7 +17,7 @@ import java.util.List;
  * They will only be instantiated if we have specified the location of identityiq.jar
  */
 
-public class IIQPluginNew {
+public class IIQPlugin {
 
     public static List<String> getTargetEnvironments(Project project) {
         List<String> fileNameList = new ArrayList<>();
@@ -40,7 +40,7 @@ public class IIQPluginNew {
         }
     }
 
-    private static VirtualFile getSelectedFile(AnActionEvent event) {
+    public static VirtualFile getSelectedFile(AnActionEvent event) {
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
         VirtualFile file = null;
         if (editor != null) {

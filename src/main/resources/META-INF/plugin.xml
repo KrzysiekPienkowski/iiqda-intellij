@@ -27,14 +27,14 @@
     <actions>
         <action
                 id="com.ventum.iiqdaintellij.action.CompareWithRemote"
-                class="com.ventum.iiqdaintellij.DropdownAction"
+                class="com.ventum.iiqdaintellij.actions.DropdownAction"
                 text="Compare With Remote"
                 description="Compare With Remote">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
         </action>
         <action
                 id="com.ventum.iiqdaintellij.action.RunTask"
-                class="com.ventum.iiqdaintellij.RunTaskAction"
+                class="com.ventum.iiqdaintellij.actions.RunTaskAction"
                 text="Run Task"
                 description="Run Task">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
@@ -42,7 +42,7 @@
 
         <group
                 id="com.ventum.iiqdaintellij.action.DeployArtifact"
-                class="com.ventum.iiqdaintellij.DeployArtifactActionGroup"
+                class="com.ventum.iiqdaintellij.actions.DeployArtifactActionGroup"
                 text="Deploy Artifact"
                 popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
@@ -51,7 +51,7 @@
 
         <group
                 id="com.ventum.iiqdaintellij.action.CustomDefaultActionGroupProject"
-                class="com.ventum.iiqdaintellij.ImportArtifactActionGroup"
+                class="com.ventum.iiqdaintellij.actions.ImportArtifactActionGroup"
                 text="Import Artifact"
                 popup="true">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="after"

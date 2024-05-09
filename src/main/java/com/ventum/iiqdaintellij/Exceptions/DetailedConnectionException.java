@@ -1,19 +1,19 @@
-package sailpoint.iiqda.exceptions;
+package com.ventum.iiqdaintellij.Exceptions;
 
 import java.util.List;
 
 public class DetailedConnectionException extends ConnectionException {
 
-  private static final long serialVersionUID = -1140092762860018283L;
-	private List<String> errors;
-  
-  public DetailedConnectionException(String message, List<String> errors) {
-    super(message);
-    this.errors=errors;
-  }
-  
-  public List<String> getErrors() {
-    return errors;
-  }
-  
+    private static final long serialVersionUID = -1140092762860018283L;
+    private List<String> errors;
+
+    public DetailedConnectionException(String message, List<String> errors) {
+        super(message);
+        this.errors = errors;
+    }
+
+    public List<String> getErrors() {
+        return errors;
+    }
+
 }
