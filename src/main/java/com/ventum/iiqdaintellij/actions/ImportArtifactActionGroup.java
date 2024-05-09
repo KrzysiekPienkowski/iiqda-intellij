@@ -19,7 +19,7 @@ public class ImportArtifactActionGroup extends ActionGroup {
         for (int i = 0; i < targetEnvironments.size(); i++) {
             String str = targetEnvironments.get(i);
             // Call the constructor to create an Object
-            DropdownAction obj = new DropdownAction(str); // Replace ObjectConstructor with your constructor
+            ImportAction obj = new ImportAction(str); // Replace ObjectConstructor with your constructor
             actionsArray[i] = obj;
         }
 

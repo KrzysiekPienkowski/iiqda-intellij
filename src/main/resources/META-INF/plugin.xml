@@ -27,7 +27,7 @@
     <actions>
         <action
                 id="com.ventum.iiqdaintellij.action.CompareWithRemote"
-                class="com.ventum.iiqdaintellij.actions.DropdownAction"
+                class="com.ventum.iiqdaintellij.actions.ImportAction"
                 text="Compare With Remote"
                 description="Compare With Remote">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>

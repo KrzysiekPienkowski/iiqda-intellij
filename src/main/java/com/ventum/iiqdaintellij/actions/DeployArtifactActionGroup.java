@@ -19,7 +19,7 @@ public class DeployArtifactActionGroup extends ActionGroup {
         for (int i = 0; i < targetEnvironments.size(); i++) {
             String str = targetEnvironments.get(i);
             // Call the constructor to create an Object
-            PopupDialogAction obj = new PopupDialogAction(str); // Replace ObjectConstructor with your constructor
+            DeployAction obj = new DeployAction(str); // Replace ObjectConstructor with your constructor
             actionsArray[i] = obj;
         }
 
