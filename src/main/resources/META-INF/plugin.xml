@@ -25,20 +25,6 @@
     </extensions>
 
     <actions>
-        <action
-                id="com.ventum.iiqdaintellij.action.CompareWithRemote"
-                class="com.ventum.iiqdaintellij.actions.ImportAction"
-                text="Compare With Remote"
-                description="Compare With Remote">
-            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
-        </action>
-        <action
-                id="com.ventum.iiqdaintellij.action.RunTask"
-                class="com.ventum.iiqdaintellij.actions.RunTaskAction"
-                text="Run Task"
-                description="Run Task">
-            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
-        </action>
 
         <group
                 id="com.ventum.iiqdaintellij.action.DeployArtifact"
@@ -46,6 +32,22 @@
                 text="Deploy Artifact"
                 popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorPopupMenu2"/>
+        </group>
+        <action
+                id="com.ventum.iiqdaintellij.action.RunTask"
+                class="com.ventum.iiqdaintellij.actions.RunTaskAction"
+                text="Run Task"
+                description="Run Task">
+            <add-to-group group-id="EditorPopupMenu" anchor="after"
+                          relative-to-action="com.ventum.iiqdaintellij.action.DeployArtifact"/>
+        </action>
+        <group
+                id="com.ventum.iiqdaintellij.action.CompareWithRemote"
+                class="com.ventum.iiqdaintellij.actions.CompareArtifactActionGroup"
+                text="Compare With Remote"
+                popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="after"
+                          relative-to-action="com.ventum.iiqdaintellij.action.RunTask"/>
         </group>
 
 
