@@ -66,7 +66,6 @@ public class CompareAction extends AnAction {
                 // Create a DiffContent for the current file's content
                 DiffContentFactory contentFactory = DiffContentFactory.getInstance();
                 DocumentContent documentContent = contentFactory.createEditable(event.getProject(), content, FileType.EMPTY_ARRAY[0]);
-                //createFromText(event.getProject(), content);
 
                 // Create a DiffContent for the string to compare with
                 DocumentContent externalContent = contentFactory.create(event.getProject(), selectedObject);

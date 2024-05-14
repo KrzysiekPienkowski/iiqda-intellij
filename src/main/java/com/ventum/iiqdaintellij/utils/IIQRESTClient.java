@@ -66,9 +66,7 @@ public class IIQRESTClient extends RESTClient {
         this.iUrl = iUrl;
         this.iUsername = iUsername;
         this.iPassword = iPassword;
-        System.out.println(this.iUrl);
-        System.out.println(this.iUsername);
-        System.out.println(this.iPassword);
+
     }
 
     public IIQRESTClient(String url, String user, String pass) {
@@ -87,32 +85,6 @@ public class IIQRESTClient extends RESTClient {
         doPost(args);
 
     }
-
-    //    public int getJarSize(String jarName) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "jarSize");
-//        args.put("jar", jarName);
-//
-//        String response = (String) doPost(args, String.class);
-//        // getJar returns a b64 encoded string
-//        // decode to a byte array
-//        return Integer.parseInt(response);
-//    }
-//
-//    public byte[] getJarData(String jarName, int start, int length) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "jarData");
-//        args.put("jar", jarName);
-//        args.put("start", Integer.toString(start));
-//        args.put("length", Integer.toString(length));
-//
-//        String response = (String) doPost(args, String.class);
-//        // getJar returns a b64 encoded string
-//        // decode to a byte array
-//        byte[] ret = Base64.getDecoder().decode(response);
-//        return ret;
-//    }
-//
     public List<String> getObjectTypes() throws ConnectionException {
         Map<String, String> args = new HashMap<String, String>();
         args.put("operation", "getObjectTypes");
@@ -121,86 +93,6 @@ public class IIQRESTClient extends RESTClient {
         return response;
     }
 
-    //
-////    public byte[] getJarFile(String jarName, IProgressMonitor monitor) throws ConnectionException, InterruptedException {
-////        int jarSize = getJarSize(jarName);
-////        int chunksize = 409600;
-////        int nextByte = 0;
-////        byte[] theJar = new byte[jarSize];
-////        int chunks = jarSize / chunksize;
-////        monitor.beginTask("Downloading " + jarName + " .. 0/" + jarSize / 1024 + "k", chunks);
-////        while (nextByte < jarSize) {
-////            if (monitor.isCanceled()) {
-////                throw new InterruptedException();
-////            }
-////            byte[] buffer = getJarData(jarName, nextByte, chunksize);
-////            System.arraycopy(buffer, 0, theJar, nextByte, buffer.length);
-////            nextByte += buffer.length;
-////            monitor.subTask("Downloading " + jarName + " .. " + nextByte / 1024 + "k/" + jarSize / 1024 + "k");
-////            monitor.worked(1);
-////        }
-////        monitor.done();
-////
-////        return theJar;
-////    }
-//
-//    public List<String> getRecentObjects(String types, int i) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "getLatestObjects");
-//        args.put("classes", types);
-//        args.put("maxObjects", Integer.toString(i));
-//
-//        Object response = doPost(args);
-//        if (!(response instanceof List)) {
-//            throw new ConnectionException("getRecentObjects:\nExpected: List\nGot: " + response.getClass().getName());
-//        }
-//        return (List<String>) response;
-//    }
-//
-//    public List<String> getTasks() throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "getTaskList");
-//
-//        Object response = doPost(args);
-//        if (!(response instanceof List)) {
-//            throw new ConnectionException("getTasks:\nExpected: List\nGot: " + response.getClass().getName());
-//        }
-//        return (List<String>) response;
-//    }
-//
-//    public String runTask(String task) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "runTask");
-//        args.put("taskName", task);
-//        Object response = doPost(args);
-//        if (!(response instanceof String)) {
-//            throw new ConnectionException("runTask:\nExpected: String\nGot: " + response.getClass().getName());
-//        }
-//        return (String) response;
-//    }
-//
-//    public Map<String, Object> getTaskResult(String taskId) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "getTaskResult");
-//        args.put("taskId", taskId);
-//        Object response = doPost(args);
-//        if (!(response instanceof Map)) {
-//            throw new ConnectionException("getTaskResult:\nExpected: Map\nGot: " + response.getClass().getName());
-//        }
-//        return (Map<String, Object>) response;
-//    }
-//
-//    public void terminateTask(String taskId) throws ConnectionException {
-//        Map<String, String> args = new HashMap<String, String>();
-//        args.put("operation", "terminateTask");
-//        args.put("taskId", taskId);
-//        Object response = doPost(args);
-//        if (!(response instanceof Map)) {
-//            throw new ConnectionException("getTaskResult:\nExpected: String\nGot: " + response.getClass().getName());
-//        }
-//
-//    }
-//
     public List<String> getObjects(String sObjectType) throws ConnectionException {
         Map<String, String> args = new HashMap<String, String>();
         args.put("operation", "getObjects");

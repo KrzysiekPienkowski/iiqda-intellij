@@ -65,7 +65,7 @@ public class IIQDATrustManager implements X509TrustManager {
                 }
             }
         } catch (KeyStoreException e) {
-          
+
         }
         return hasCert;
     }
@@ -75,54 +75,4 @@ public class IIQDATrustManager implements X509TrustManager {
         return null;
     }
 
-//    private void queryUserForAcceptance(X509Certificate cert, VirtualFile destKSFile) throws CertificateException {
-//
-//        CertQuery certQuery = new CertQuery(cert);
-//        PlatformUI.getWorkbench().getDisplay().syncExec(certQuery);
-//
-//        int status = certQuery.getStatus();
-//
-//        switch (status) {
-//            case 0:
-//                return;
-//            case 1:
-//                saveApprovedCert(cert);
-//                return; // TODO: Store this cert
-//            case 2:
-//            default:
-//                throw new CertificateException("not in keystore");
-//        }
-//    }
-
-
-//    private final class CertQuery implements Runnable {
-//        private final X509Certificate last;
-//        private int status;
-//
-//        private CertQuery(X509Certificate last) {
-//            this.last = last;
-//        }
-//
-//        public void run() {
-//
-//            Shell activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-//
-//            String dlgTitle = "Untrusted CA Cert";
-//            String dlgMessage = "Trust this Certificate?\n\n" +
-//                    "Issuer: " + last.getIssuerDN() + "\n" +
-//                    "Valid from: " + last.getNotBefore() + "\n" +
-//                    "Valid to: " + last.getNotAfter() + "\n";
-//            String[] dlgButtons = {"Just Once", "Always", "No"};
-//            MessageDialog dlg = new MessageDialog(activeShell, dlgTitle, null,
-//                    dlgMessage, MessageDialog.QUESTION, dlgButtons, 2);
-//            status = dlg.open();
-//            if (DEBUG_TRUST) {
-//                CorePlugin.logDebug("status=" + status);
-//            }
-//        }
-//
-//        public int getStatus() {
-//            return status;
-//        }
-//    }
 }

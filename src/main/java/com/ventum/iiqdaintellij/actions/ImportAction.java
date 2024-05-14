@@ -6,13 +6,13 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.ui.ComboBox;
-import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.ui.CollectionComboBoxModel;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBScrollPane;
 import com.ventum.iiqdaintellij.Exceptions.ConnectionException;
+import com.ventum.iiqdaintellij.utils.CoreUtils;
 import com.ventum.iiqdaintellij.utils.IIQRESTClient;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,18 +20,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class ImportAction extends AnAction {
 
     private String selectedObjectType;
     private String selectedObjectName;
     private AnActionEvent event;
-    private static String[] attributesToClean = new String[]{"id", "created", "modified"};
+
 
     public ImportAction() {
     }
@@ -112,22 +108,16 @@ public class ImportAction extends AnAction {
                 } catch (ConnectionException ex) {
                     throw new RuntimeException(ex);
                 }
-                String cleanedObject = clean(selectedObject);
-                cleanedObject = cleanedObject.replaceAll("<Source>", "<Source><![CDATA[");
-                cleanedObject = cleanedObject.replaceAll("</Source>", "]]></Source>");
+                String cleanedObject = CoreUtils.clean(selectedObject);
+                cleanedObject = CoreUtils.addCDATA(cleanedObject);
                 String savedFilePath = saveStringToFile(cleanedObject);
                 VirtualFileManager.getInstance().syncRefresh();
-                FileEditorManager.getInstance(event.getProject()).openFile(getVirtualFileFromPath(savedFilePath), true);
+                FileEditorManager.getInstance(event.getProject()).openFile(CoreUtils.getVirtualFileFromPath(savedFilePath), true);
                 frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(panel, "No value selected.");
             }
         });
-    }
-
-    private VirtualFile getVirtualFileFromPath(String filePath) {
-        LocalFileSystem localFileSystem = LocalFileSystem.getInstance();
-        return localFileSystem.findFileByPath(filePath);
     }
 
     private String saveStringToFile(String fileContent) {
@@ -151,30 +141,6 @@ public class ImportAction extends AnAction {
         }
 
         return filePath;
-    }
-
-    private String clean(String object) {
-        List<String> components = new ArrayList<String>();
-        for (String property : attributesToClean) {
-            components.add(String.format("(?:\\b%s=\"[^\"]+\")", property));
-        }
-        Pattern compiledCleanPattern = Pattern.compile(join(components, "|"));
-        return compiledCleanPattern.matcher(object).replaceAll("");
-    }
-
-    private String join(Collection<String> c, String delimiter) {
-        if (null == c)
-            return null;
-
-        StringBuffer buf = new StringBuffer();
-        Iterator<String> iter = c.iterator();
-        while (iter.hasNext()) {
-            buf.append(iter.next());
-            if (iter.hasNext())
-                buf.append(delimiter);
-        }
-        return buf.toString();
-
     }
 
     private DefaultListModel getModelFromList(List list) {

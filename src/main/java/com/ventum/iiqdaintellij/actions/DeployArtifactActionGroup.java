@@ -18,11 +18,9 @@ public class DeployArtifactActionGroup extends ActionGroup {
         AnAction[] actionsArray = new AnAction[targetEnvironments.size()];
         for (int i = 0; i < targetEnvironments.size(); i++) {
             String str = targetEnvironments.get(i);
-            // Call the constructor to create an Object
-            DeployAction obj = new DeployAction(str); // Replace ObjectConstructor with your constructor
+            DeployAction obj = new DeployAction(str);
             actionsArray[i] = obj;
         }
-
         return actionsArray;
     }
 

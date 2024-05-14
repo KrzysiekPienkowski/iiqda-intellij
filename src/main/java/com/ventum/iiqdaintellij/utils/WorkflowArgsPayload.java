@@ -56,7 +56,6 @@ public class WorkflowArgsPayload {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-//    String       t; 
 
         for (char c : s.toCharArray()) {
             if ((c == '\\') || (c == '\"')) {
@@ -72,15 +71,7 @@ public class WorkflowArgsPayload {
                 sb.append("\\f");
             else if (c == '\r')
                 sb.append("\\r");
-//      else 
-//      { 
-//        if (c < ' ')  
-//        { 
-//          //t = "000" + Integer.toHexString(c); 
-//          String t = ""+c; 
-//          t = "000" + int.Parse(tmp,System.Globalization.NumberStyles.HexNumber); 
-//          sb.append("\\u" + t.Substring(t.Length - 4)); 
-//        }  
+
             else {
                 sb.append(c);
             }

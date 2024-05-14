@@ -18,8 +18,7 @@ public class ImportArtifactActionGroup extends ActionGroup {
         AnAction[] actionsArray = new AnAction[targetEnvironments.size()];
         for (int i = 0; i < targetEnvironments.size(); i++) {
             String str = targetEnvironments.get(i);
-            // Call the constructor to create an Object
-            ImportAction obj = new ImportAction(str); // Replace ObjectConstructor with your constructor
+            ImportAction obj = new ImportAction(str);
             actionsArray[i] = obj;
         }
 

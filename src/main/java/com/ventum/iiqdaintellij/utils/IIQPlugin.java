@@ -11,12 +11,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The activator class controls the plug-in life cycle
- * The IIQ-specific pieces have been abstracted so that on lazy initialisation
- * They will only be instantiated if we have specified the location of identityiq.jar
- */
-
 public class IIQPlugin {
 
     public static List<String> getTargetEnvironments(Project project) {
